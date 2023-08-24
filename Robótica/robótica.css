@@ -1,16 +1,33 @@
-header{background-color: #f0e2e6;color: black;
+header {
+    background-color: #f0e2e6;
+    color: black;
     position: relative;
     width: 940px;
     margin: 0 auto;
 }
 
-body{background-color: #d48299;}
+body {
+    background-color: #d48299;
+}
 
-.foto3{width: 15%;}
-.foto4{width: 15%;}
-.foto7{width: 15%;}
-.foto8{width: 15%;}
+.foto3 {
+    width: 15%;
+}
+
+.foto4 {
+    width: 15%;
+}
+
+.foto7 {
+    width: 15%;
+}
+
+.foto8 {
+    width: 15%;
+}
 
 
 
-.IMG-20230520-WA0000{width: 15%;}
+.IMG-20230520-WA0000 {
+    width: 15%;
+}
