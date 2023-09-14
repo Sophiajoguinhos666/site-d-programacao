@@ -5,7 +5,7 @@ header {
 
 body {
     background-color: #3CB371;
-    color: black
+    color: black;
 }
 .teclado {
     background: linear-gradient(to bottom, #eeeeee 0%,#cccccc 100%);
