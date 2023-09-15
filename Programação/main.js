@@ -7,6 +7,6 @@ let Contador = 0;
 
 while (Contador < 9) {
     lista [Contador].onclick = Toca;
-    lista = Contador + 1;
+    Contador = Contador + 1;
     console.log(Contador);
 }
