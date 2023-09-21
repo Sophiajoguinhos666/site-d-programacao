@@ -1,5 +1,5 @@
 function Toca (idElementoAudio) {
-    document.querySelector('idElementoAudio').play();
+    document.querySelector(idElementoAudio).play();
 }
 const lista = document.querySelectorAll('.tecla');
 
