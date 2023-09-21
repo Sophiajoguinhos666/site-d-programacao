@@ -6,7 +6,7 @@ const lista = document.querySelectorAll('.tecla');
 let Contador = 0;
 
 
-while (Contador < 9) {
+while (Contador < lista.length) {
     lista [Contador].onclick = Toca;
     const classe = lista[Contador].classList[1];
     console.log(classe);     
