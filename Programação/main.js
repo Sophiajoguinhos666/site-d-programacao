@@ -8,7 +8,7 @@ let Contador = 0;
 
 while (Contador < lista.length) {
     lista [Contador].onclick = function() {
-        Toca('#som_tecla_toim');
+        Toca('idAudio');
     }
     const classe = lista[Contador].classList[1];
     console.log(classe);    
@@ -18,6 +18,7 @@ while (Contador < lista.length) {
 
 const idAudio = `#som_${classe}`;
 console.log(idAudio);
+
 }
 
 
