@@ -10,7 +10,7 @@ const lista = document.querySelectorAll('.tecla');
 let Contador = 0;
 
 
-for (Contador < lista.length) {
+for (let Contador = 0; Contador < lista.length;Contador++) {
     const tecla = lista[Contador]
     const classe = tecla.classList[1]
     const idAudio = `#som_${classe}`;
