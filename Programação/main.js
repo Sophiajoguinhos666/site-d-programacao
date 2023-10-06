@@ -1,4 +1,4 @@
-//alert
+//alerta
 //alert(:c)
 
 
