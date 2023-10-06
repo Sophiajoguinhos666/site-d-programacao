@@ -18,7 +18,7 @@ while (Contador < lista.length) {
     const idAudio = `#som_${classe}`;
     // console.log(classe);
 
-    lista[contador].onclick = function() {
+    lista[Contador].onclick = function() {
         Toca(idAudio);
     }
 
