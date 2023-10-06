@@ -1,3 +1,7 @@
+//alert
+//alert(:c)
+
+
 function Toca (idElementoAudio) {
     document.querySelector(idElementoAudio).play();
 }
@@ -9,14 +13,19 @@ let Contador = 0;
 while (Contador < lista.length) {
     const tecla = lista[Contador]
     const classe = tecla.classList[1]
+    // console.log(classe);
+
     const idAudio = `#som_${classe}`;
+// console.log(classe);
 
-    tecla.onclick = function () {
-        Toca(idAudio);
-    }
+lista[contador].onliclick = funnction () {
+    toca(isAudio);
+}
 
-    Contador = Contador + 1;
-    tecla.onkeydown = function (evento) {
+Contador = Contador + 1;
+//console.log(Contador);
+
+tecla.onkeydown = function (evento) {
 tecla.classList.add('ativa');
 console.log(evento.code === 'Space' || evento.code === 'Enter' );
     }
@@ -24,5 +33,4 @@ console.log(evento.code === 'Space' || evento.code === 'Enter' );
 tecla.onkeyup = function () {
 tecla.classList.remove('ativa');
 
-}
-}
+}}
