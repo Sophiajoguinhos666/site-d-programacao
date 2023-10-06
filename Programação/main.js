@@ -2,7 +2,7 @@
 //alert(:c)
 
 
-function Toca (idElementoAudio) {
+function Toca(idElementoAudio) {
     document.querySelector(idElementoAudio).play();
 }
 const lista = document.querySelectorAll('.tecla');
@@ -16,22 +16,22 @@ while (Contador < lista.length) {
     // console.log(classe);
 
     const idAudio = `#som_${classe}`;
-// console.log(classe);
+    // console.log(classe);
 
-lista[contador].onliclick = funnction () {
-    toca(isAudio);
-}
-
-Contador = Contador + 1;
-//console.log(Contador);
-
-    tecla.onkeydown = function (evento) {
-tecla.classList.add('ativa');
-console.log(evento.code === 'Space' || evento.code === 'Enter' );
+    lista[contador].onliclick = funnction() {
+        toca(isAudio);
     }
 
-tecla.onkeyup = function () {
-tecla.classList.remove('ativa');
+    Contador = Contador + 1;
+    //console.log(Contador);
 
-}
+    tecla.onkeydown = function (evento) {
+        tecla.classList.add('ativa');
+        console.log(evento.code === 'Space' || evento.code === 'Enter');
+    }
+
+    tecla.onkeyup = function () {
+        tecla.classList.remove('ativa');
+
+    }
 }
