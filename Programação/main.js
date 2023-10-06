@@ -18,16 +18,18 @@ while (Contador < lista.length) {
     const idAudio = `#som_${classe}`;
     // console.log(classe);
 
-    lista[contador].onliclick = funnction() {
-        toca(isAudio);
+    lista[contador].onclick = function() {
+        Toca(idAudio);
     }
 
     Contador = Contador + 1;
     //console.log(Contador);
 
     tecla.onkeydown = function (evento) {
+        if (evento.code === 'Space' || evento.code === 'Enter'){
         tecla.classList.add('ativa');
-        console.log(evento.code === 'Space' || evento.code === 'Enter');
+        //console.log(evento.code === 'Space' || evento.code === 'Enter');
+    }
     }
 
     tecla.onkeyup = function () {
