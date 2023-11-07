@@ -16,8 +16,6 @@ for (let Contador = 0; Contador < listaTeclas.length;Contador++  ) {
     const idAudio = `#som_${classe}`;
     
 
-    const idAudio = `#som_${classe}`;
-
     lista[Contador].onclick = function() {
         Toca(idAudio);
     }
