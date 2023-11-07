@@ -7,9 +7,6 @@ function Toca(idElementoAudio) {
 }
 const lista = document.querySelectorAll('.tecla');
 
-let Contador = 0;
-
-
 for (let Contador = 0; Contador < lista.length;Contador++  ) {
     const tecla = lista[Contador]
     const classe = tecla.classList[1]
