@@ -33,155 +33,87 @@ for (let Contador = 0; Contador < lista.length;Contador++  ) {
 
 
 
-var Screen = React.createClass({
-    render: function(){
-      return (
-        <div id="display">
-          <span className="clean" onClick={this.props.onClickClean}>x</span>
-          {this.props.displayText}
-        </div>
-      );
-    }
-  });
-  
-  var Inputs = React.createClass({
-    render: function(){
-      return (
-        <div id="inputs">
-          <Numbers onClick={this.props.onClickOperando} onClickTotal={this.props.onClickOperador}/>
-          <Operations onClick={this.props.onClickOperador}/>
-        </div>
-      );
-    }
-  });
-  
-  var Numbers = React.createClass({
-    getInitialState: function(){
-      return {
-        buttons: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.']
-      }
-    },
-    render: function(){
-      var buttonElements = [];
-      for(var i = 0; i < this.state.buttons.length; i++){
-        buttonElements.push(
-          <Button label={this.state.buttons[i]} onClick={this.props.onClick}/>
-        );
-      }
-      return (
-        <div id="numbers">
-          {buttonElements}
-          <Button label="=" onClick={this.props.onClickTotal} className="greenBtn"/>
-        </div>
-      );
-    }
-  });
-  
-  var Operations = React.createClass({
-    getInitialState: function(){
-      return {
-        buttons: ['+', '-', '/', 'x']
-      }
-    },
-    render: function(){
-      var buttonElements = [];
-      for(var i = 0; i < this.state.buttons.length; i++){
-        buttonElements.push(
-          <Button label={this.state.buttons[i]} onClick={this.props.onClick}/>
-        );
-      }
-      return (
-        <div id="operations">
-          {buttonElements}
-        </div>
-      );
-    }
-  });
-  
-  var Button = React.createClass({
-    render: function(){
-      var classes = ['defaultButton'];
-      classes.push(this.props.className);
-      return (
-        <button type="button" className={classes.join(' ')} onClick={(e) => this.props.onClick(e, this.props.label)}>
-          {this.props.label}
-        </button>
-      );
-    }
-  });
-  
-  var Container = React.createClass({
-    getInitialState: function(){
-      return {
-        operando: '',
-        operador: '',
-        display: '0',
-        resultDisplayed: false
-      }
-    },
-    onClickOperando: function(e, label){
-      if(this.state.display == '0' || isNaN(this.state.display) || this.state.resultDisplayed){
-        var display = label;
-        this.setState({ resultDisplayed: false, });
-      } else {
-        var display = this.state.display + label;
-      }
-      
-      this.setState({ display: display });
-    },
-    onClickOperador: function(e, label){
-      if(this.state.operador.length > 0){
-        this.calculate();
-        if(label == '='){
-          this.setState({
-            resultDisplayed: true,
-            operador: ''
-          });
-        } else {
-          this.setState({
-            resultDisplayed: true,
-            operador: label
-          });
-        }
-      } else {
-        this.setState({
-          operando: this.state.display,
-          operador: label,
-          display: label
-        });
-      }
-    },
-    onClickClean: function(){
-      this.setState(this.getInitialState);
-    },
-    calculate: function(){var displayResult;
-        switch(this.state.operador){
-          case '+':
-            displayResult = parseFloat(this.state.operando) + parseFloat(this.state.display);
-            break;
-          case '-':
-            displayResult = parseFloat(this.state.operando) - parseFloat(this.state.display);
-            break;
-          case '/':
-            displayResult = parseFloat(this.state.operando) / parseFloat(this.state.display);
-            break;
-          case 'x':
-            displayResult = parseFloat(this.state.operando) * parseFloat(this.state.display);
-            break;
-        }
-        this.setState({
-          operando: displayResult,
-          display: displayResult
-        });
-    },
-    render: function() {
-      return (
-        <div id="container">
-          <Screen displayText={this.state.display} onClickClean={this.onClickClean}/>
-          <Inputs onClickOperando={this.onClickOperando} onClickOperador={this.onClickOperador}/>
-        </div>
-      );
-    }
-  });
-  
-  React.render(<Container/>, document.getElementById('calculadora'));
+/*-----------------------------------------CALCULADORA----------------------------------------------------------*/
+// pego os elementos li e div input
+var btn 	  = document.querySelectorAll(".key li"),
+	input 	  = document.querySelector(".input-valor"),
+	operador  = document.querySelectorAll(".operador");
+
+// Percorro o array para usar todas as informações
+for(var i = 0; i < btn.length; i++){
+	document.onkeypress = function(event){
+		var key = event.charCode; // Mudança de keyCode para charCode, por que o firefox não aceitou keyCode
+		//console.log(key);
+		//console.log(String.fromCharCode(47));
+		for(var e = 0; e <= 10; e++){
+			if(key === (48+e)){
+				input.innerHTML += e;
+			}
+		}
+		switch (key){
+			case 42:
+				input.innerHTML += "*";
+				break;
+			case 43:
+				input.innerHTML += "+";
+				break;
+			case 45:
+				input.innerHTML += "-";
+				break;
+			case 46:
+				input.innerHTML += ".";
+				break;
+			case 47:
+				input.innerHTML += "/";
+				break;
+			case 13:
+			case 61:
+				var equacao = input.innerHTML;
+				if(equacao){
+					try {
+						input.innerHTML = eval(equacao);
+					} catch (e) {
+						alert('Erro na expressão');
+
+					} 
+				}
+				break;
+			case 67:
+			case 99:
+				input.innerHTML = "";
+				break;						
+			default:
+				//console.log("Procurando erros?");
+				break;
+		}
+	};
+	btn[i].addEventListener('click',function(){
+		var btnVal 	 = this.innerHTML,
+			inputVal = input.innerHTML;
+		//console.log(btnVal);
+
+		// crio um clear caso o c for clicado
+		switch (btnVal){
+			case "c":
+				input.innerHTML = "";
+				break;
+			case "=":
+				// Crio a variável de equação aqui eu utilizo a função eval do javascript
+				var equacao = inputVal;
+				
+				if(equacao){
+					try {
+						input.innerHTML = eval(equacao);
+					} catch (e) {
+						alert('Erro na expressão');
+
+					} 
+				}
+				break;
+			default:
+				input.innerHTML += btnVal;
+				break;	
+		}
+
+	});
+}
