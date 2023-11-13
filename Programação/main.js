@@ -31,7 +31,7 @@ for (let Contador = 0; Contador < lista.length;Contador++  ) {
     }
 }
 
-<script>
+
         function calcular() {
             var numero1 = parseFloat(document.getElementById("numero1").value);
             var numero2 = parseFloat(document.getElementById("numero2").value);
@@ -59,4 +59,3 @@ for (let Contador = 0; Contador < lista.length;Contador++  ) {
             document.getElementById("resultado").innerHTML = "Resultado: " + resultado;
         }
         
-    </script>
